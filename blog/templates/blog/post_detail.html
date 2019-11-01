@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+{% if persona.published_date %}
+    <div class="date">
+        {{ persona.published_date }}
+    </div>
+{% else %}
+    <a class="btn btn-default" href="{% url 'post_publish' pk=persona.pk %}">Publish</a>
+{% endif %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=persona.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'post_remove' pk=persona.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <p>apellido:{{persona.apellido }}</p>
+        <p>nombre:{{persona.nombre}}</p>
+        <p>dni:{{persona.dni}}</p>
+        <p>direccion:{{persona.direccion}}</p>
+        <p>fecha_nacimiento:{{persona.fecha_nacimiento}}</p>
+        <p>fecha_de_alta:{{persona.fecha_de_alta}}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for persona in personas %}
+        <div class="post">
+            <div class="date">
+                {{ persona.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=persona.pk %}">{{ persona.apellido}}, {{persona.nombre}} </a></h1>
+        </div>
+    {% endfor %}
+{% endblock %}
+
